@@ -32,12 +32,10 @@ class ProductProvider extends Component {
     });
   };
 
-
   getItem = id => {
     const product = this.state.products.find(item => item.id === id);
     return product;
   };
-
 
   handleDetail = (id) => {
     const product = this.getItem(id);
@@ -45,7 +43,6 @@ class ProductProvider extends Component {
       return {detailProduct: product}
     })
   };
-
 
   addToCart = (id) => {
     let tempProducts = [...this.state.products];
@@ -63,19 +60,18 @@ class ProductProvider extends Component {
     });
   };
 
-
   openModal = id => {
     const product = this.getItem(id);
     this.setState(() => {
       return {modalProduct: product, modalOpen: true}
     })
   }
+
   closeModal = () => {
     this.setState(() => {
       return {modalOpen: false}
     });
   };
-
 
   increment = (id) => {
     let tempCart = [...this.state.cart];
@@ -93,6 +89,7 @@ class ProductProvider extends Component {
       }
     );
   };
+
   decrement = (id) => {
     let tempCart = [...this.state.cart];
     const selectedProduct = tempCart.find(item => item.id === id)
@@ -113,7 +110,6 @@ class ProductProvider extends Component {
       );
     }
   };
-
 
   removeItem = (id) => {
     let tempProducts = [...this.state.products];
@@ -137,7 +133,6 @@ class ProductProvider extends Component {
     );
   };
 
-
   clearCart = () => {
     this.setState(() => {
       return { cart: [] }
@@ -146,7 +141,6 @@ class ProductProvider extends Component {
       this.addTotals();
     })
   };
-
 
   addTotals = () => {
     let subtotal = 0;
